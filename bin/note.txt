@@ -1,0 +1,37 @@
+int i,j,k,jmin,temp;
+    int nilai[6];
+
+
+    for(i=0;i<6;i++)
+    {
+        cout<<"Masukkan angka "<<i+1<<" :"; cin>>nilai[i];
+
+    }
+
+    cout<<"\nData yang anda masukkan : \n";
+    for(i=0;i<6;i++)
+    {
+        cout<<nilai[i]<<" ";
+    }
+    cout<<"\n\n------------------------";
+    cout<<"\nData setelah diurut";
+    cout<<"\n------------------------\n";
+    for(j=0;j<i-1;j++)
+    {
+        jmin=j;
+        for(k=j+1;k<i;k++)
+        {
+            if(nilai[k]>nilai[jmin])
+            {
+                jmin=k;
+            }
+            temp=nilai[jmin];
+            nilai[jmin]=nilai[k];
+            nilai[k]=temp;
+    }
+
+    }
+    for(j=0;j<i;j++)
+    {
+        cout<<nilai[j]<<" ";
+    }
