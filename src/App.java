@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class App {
         int[] nilai = new int[10];
         String[] kata = new String[10];
 
-        int i, imin,  j, k, m, n, temp;
+        int i, imin, imax, pos, j, k, m, n, temp;
         boolean isContinue = true;
         int jumlah = 0;
         String pilihan = null, pilihanUser;
@@ -58,13 +57,14 @@ public class App {
                 for(i = 0; i < n - 1; i++){
                     imin = i;
                     for(j = i+1; j < n; j++){
-                        if( nilai[j] > nilai[imin] ){
-                        imin=j;
+                        if( nilai[imin] > nilai[j] ){
+                            imin = j;
                         }
-                        temp = nilai[imin];
-                        nilai[imin] = nilai[j];
-                        nilai[j] = temp;
+                        
                     }
+                    temp = nilai[i];
+                    nilai[i] = nilai[imin];
+                    nilai[imin] = temp;
         
                     System.out.println("Langkah ke " + (i+1));
                     System.out.println("-----------------------");
@@ -109,15 +109,15 @@ public class App {
                 System.out.println();
         
                 for(i = 0; i < n - 1; i++){
-                    imin = i;
+                    imax = i;
                     for(j = i+1; j < n; j++){
-                        if( nilai[j] < nilai[imin] ){
-                        imin=j;
-                        }
-                        temp = nilai[imin];
-                        nilai[imin] = nilai[j];
-                        nilai[j] = temp;
+                        if( nilai[imax] < nilai[j] ){
+                            imax = j;
+                        }   
                     }
+                    temp = nilai[i];
+                    nilai[i] = nilai[imax];
+                    nilai[imax] = temp;
         
                     System.out.println("Langkah ke " + (i+1));
                     System.out.println("-----------------------");
@@ -162,15 +162,16 @@ public class App {
                 System.out.println();
         
                 for(i = 0; i < n - 1; i++){
-                    imin = i;
+                    pos = i;
                     for(j = i+1; j < n; j++){
-                        if( kata[j].compareTo(kata[imin]) > 0 ){
-                            imin=j;
+                        if( kata[pos].compareTo(kata[j]) > 0 ){
+                            pos=j;
                         }
-                        String temp2 = kata[imin];
-                        kata[imin] = kata[j];
-                        kata[j] = temp2;
+                        
                     }
+                    String temp2 = kata[i];
+                    kata[i] = kata[pos];
+                    kata[pos] = temp2;
         
                     System.out.println("Langkah ke " + (i+1));
                     System.out.println("-----------------------");
